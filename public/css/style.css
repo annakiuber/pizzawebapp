@@ -1,0 +1,46 @@
+
+@font-face {
+   font-family: 'futuramafont';
+   src: url('/assets/fonts/fr-bold-webfont-webfont.woff') format('woff'), url('/assets/fonts/fr-bold-webfont.woff2') format('woff2');
+   font-weight: normal;
+   font-style: normal;
+}
+
+body{
+    text-shadow: 2px 2px 5px white;
+    font-family: 'futuramafont';
+    font-size: 200%;
+    /* background-image: url("img/pizzaplace.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; */
+      }
+
+h1 {
+    text-shadow: 2px 2px 5px white;
+    font-family: 'futuramafont';
+    src: url('assets/fonts/the-font.ttf');
+    font-size: 150%;
+}
+ul{
+    text-align: center;
+    list-style-type: circle;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+
+}
+li {
+  color: red;
+  font-size: 2rem;
+  font-family:futuramafont;
+  text-align: center;
+}
+
+li a:hover {
+    background-color: #555;
+    color: white;
+}

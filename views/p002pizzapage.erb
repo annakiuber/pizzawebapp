@@ -1,25 +1,17 @@
+<form method= "post" action ="toppings" id="toppings">
+  <h1>would you like 0-4 veggie toppings?</h1>
+    <input type="number" name = "selctveggienumber" >
 
-
-
-
-
-<form method= "post" action ="toppings" id="veggie">
-<h1>would you like 0-4 veggie toppings?</h1>
-    <input type="number" name = "newveggienumber" oninput="veggienumber">
-
-
-
-
-<h1> what kind of veggies would you like on your pizza?</h1>
-  <%veggies.each do |veggies| %>
+  <h1> what kind of veggies would you like on your pizza?</h1>
+    <%veggies.each do |veggies| %>
     <input type = "checkbox" name = "selectveggies[]" value ='<%=veggies%>'>
     <%=veggies%>
     <%end%>
-<h1>would you like 0-4 meat toppings?</h1>
-<input type="number" id="newmeatnumber" oninput="veggienumber">
+  <h1>would you like 0-4 meat toppings?</h1>
+    <input type="number" id="newmeatnumber">
 
 <h1> What kind of meats would you like?</h1>
-  <%meats.each do |meats| %>
+    <%meats.each do |meats| %>
     <input type = "checkbox" name = "selectmeats[]" value ='<%=meats%>'>
     <%=meats%>
     <%end%>

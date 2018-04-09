@@ -1,21 +1,30 @@
+
+
 <h1>Hello <%=first_name%></h1></p>
 
 <h1>How many pizzas would you like?</h1>
 
-<form method="post" action="pizzapageform1">
+<form method="post" action="pizzapageform1" id="pizzapageform1">
   <input type="number" name="pizza_number">
 
 
 <h1> What size pizza would you like?</h1>
 <%size.each do |size| %>
-  <input type = "checkbox" name = "selectpizzasize" value ='<%=size%>'>
+  <input type = "checkbox" name = "selectpizzasize[]" value ='<%=size%>'>
   <%=size%>
 <%end%>
 
 <h1> What kind of crust would you like?</h1>
 <%crust.each do |crust| %>
-  <input type = "checkbox" name = "selectcrust" value ='<%=crust%>'>
+  <input type = "checkbox" name = "selectcrust[]" value ='<%=crust%>'>
   <%=crust%>
 <%end%>
+
+<h1>What kind of sauce would you like on your pizza?</h1>
+<%sauces.each do |sauces| %>
+  <input type = "checkbox" name = "selectsauce[]" value ='<%=sauces%>'>
+  <%=sauces%>
+<%end%>
+
 
 <p><input type="submit" value="next"></form></center></p>
