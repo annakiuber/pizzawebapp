@@ -9,8 +9,8 @@
 body{
     text-shadow: 2px 2px 5px white;
     font-family: 'futuramafont';
-    /* font-size: 150%;
-        color: black */
+    text-align: center;
+    margin-top: 2em;
     }
 
     /* background-image: url("img/pizzaplace.jpg");
@@ -25,26 +25,35 @@ h1 {
     text-shadow: 2px 2px 5px white;
     font-family: 'futuramafont';
     src: url('assets/fonts/the-font.ttf');
-    font-size: 150%;
-    color: black
+    font-size: 30PX;
+    color: black;
+    text-align: center;
+
 }
 ul{
-    text-align: center;
-    list-style-type: circle;
+    display: inline;
+    text-align: inline;
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
+    width: 50%;
+    font-size: 15px;
+    overflow: hidden;
+    background-color: #006600;
+
 
 }
 li {
-  color: red;
-  font-size: 2rem;
+  float: left;
+  display: block;
+  color: #006600;
   font-family:futuramafont;
-  text-align: center;
+   margin-top: 18em;
+  font-size: 15px;
+  background-color: black
 }
 
 li a:hover {
-    background-color: #555;
     color: white;
+
 }

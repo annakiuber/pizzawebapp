@@ -1,7 +1,7 @@
 require "sinatra"
 
 require_relative "pizzamachinepretotalpage.rb"
-# require_relative "totalfunction.rb"
+require_relative "totalfunction.rb"
 
 enable :sessions
 
@@ -19,9 +19,9 @@ post "/get_first_name" do
 end
 
 get "/pizzapageform1" do
-     # size = size()
-		 # crust = crust()
-		 # sauces = sauces()
+     size = size()
+		 crust = crust()
+		 sauces = sauces()
   erb :p001pizzapage, locals:{first_name: session[:first_name], size:size , crust:crust, sauces:sauces}
 end
 
@@ -30,9 +30,9 @@ post "/pizzapageform1" do
 	session[:selectpizzasize] = params[:selectpizzasize]
 	session[:selectcrust] = params[:selectcrust]
 	session[:selectsauce] = params[:selectsauce]
-	order_hash[pizza_number] = session[:pizza_number]
-	order_hash[selectpizzasize] = session[:selectpizzasize]
-	order_hash[selectcrust] = sesion[:selectcrust]
+	order_hash["selectpizzasize"] = session[:selectpizzasize]
+	order_hash["selectcrust"] = session[:selectcrust]
+	puts "This is the order hash after del #{order_hash}"
 	redirect "/toppings?="
 	# need if statement for reirect if 0 pizza
 end
@@ -50,9 +50,9 @@ post '/toppings' do
 	session[:newmeatnumber] = params[:newmeatnumber]
   session[:selectmeats] = params[:selectmeats]
 	session[:yesnoextracheese] = params[:yesnoextracheese]
-	order_hash[:selectveggienumber] = session[:selectveggienumber]
-	order_hash[:newmeatnumber] = session[:newmeatnumber]
-	order_hash[:yesnoextracheese] = session[:yesnoextracheese]
+	order_hash["selectveggienumber"] = session[:selectveggienumber]
+	order_hash["newmeatnumber"] = session[:newmeatnumber]
+	order_hash["yesnoextracheese"] = session[:yesnoextracheese]
 	puts "This is new veggie number #{session[:newveggienumber]}!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 		puts "This is the veggie you selected #{session[:selectveggies]}!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 		redirect "/sides?="
@@ -72,8 +72,8 @@ end
 	 session[:selectwings] = params[:selectwings]
 	 session[:yesnosalad] = params[:yesnosalad]
 	 session[:selectsalads] = params[:selectsalads]
-	 order_hash[:yesnowings] = session[:yesnowings]
-	 order_hash[:yesnosalad] = session[:yesnowings]
+	 order_hash["yesnowings"] = session[:yesnowings]
+	 order_hash["yesnosalad"] = session[:yesnowings]
 	 puts "this is what you picked: #{session[:yesnowings]},
 	  #{session[:selectwings]}, #{session[:yesnosalad]}, #{session[:selectsalads]}"
 	 redirect "/drinkanddesserts?="
@@ -89,8 +89,8 @@ end
 	 session[:yesnodrinks] = params[:yesnodrinks]
 	 session[:selectdrinks] =  params[:selectdrinks]
 	 session[:yesnoicecream] = params[:yesnoicecream]
-	 order_hash[:yesnodrinks] = session[:yesnodrinks]
-	 order_hash[:yesnoicecream] = session[:yesnoicecream]
+	 order_hash["yesnodrinks"] = session[:yesnodrinks]
+	 order_hash["yesnoicecream"] = session[:yesnoicecream]
  	redirect "/deliveryform?="
 
  end
@@ -104,14 +104,15 @@ post '/deliveryform' do
 	session[:address] = params[:address]
 	session[:yesnotip] = params[:yesnotip]
 	session[:tipamount] = params[:tipamount]
-	order_hash[:yesnodelivery] = session[:yesnodelivery]
-	order_hash[:yesnotip] = session[:yesnotip]
-	order_hash[:tipamount] = session[:tipamount]
+	order_hash["yesnodelivery"] = session[:yesnodelivery]
+	order_hash["yesnotip"] = session[:yesnotip]
+	order_hash["tipamount"] = session[:tipamount]
 	redirect "/final_total_end?="
 end
 
 get '/final_total_end' do
-	final_total = totalpricefunction(order_hash)
+	pizza_number = session[:pizza_number]
+	final_total = totalpricefunction(pizza_number, order_hash)
 	puts "your total price is #{session[:final_total]}!!!!!!!!!!!!!!!!"
 	erb :p006pizzapage, locals:{final_total:final_total}
 

@@ -4,7 +4,7 @@
 
   <h1> what kind of veggies would you like on your pizza?</h1>
     <%veggies.each do |veggies| %>
-    <input type = "checkbox" name = "selectveggies[]" value ='<%=veggies%>'>
+    <input type = "checkbox" name = "selectveggies" value ='<%=veggies%>'>
     <%=veggies%>
     <%end%>
   <h1>would you like 0-4 meat toppings?</h1>
@@ -12,7 +12,7 @@
 
 <h1> What kind of meats would you like?</h1>
     <%meats.each do |meats| %>
-    <input type = "checkbox" name = "selectmeats[]" value ='<%=meats%>'>
+    <input type = "checkbox" name = "selectmeats" value ='<%=meats%>'>
     <%=meats%>
     <%end%>
 
