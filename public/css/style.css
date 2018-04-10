@@ -9,7 +9,10 @@
 body{
     text-shadow: 2px 2px 5px white;
     font-family: 'futuramafont';
-    font-size: 200%;
+    /* font-size: 150%;
+        color: black */
+    }
+
     /* background-image: url("img/pizzaplace.jpg");
     background-repeat:no-repeat;
     background-size:cover;
@@ -23,6 +26,7 @@ h1 {
     font-family: 'futuramafont';
     src: url('assets/fonts/the-font.ttf');
     font-size: 150%;
+    color: black
 }
 ul{
     text-align: center;

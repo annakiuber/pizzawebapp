@@ -1,7 +1,9 @@
 require "sinatra"
-enable :sessions
+
 require_relative "pizzamachinepretotalpage.rb"
-require_relative "totalfunction.rb"
+# require_relative "totalfunction.rb"
+
+enable :sessions
 
 order_hash = {}
 
@@ -17,9 +19,9 @@ post "/get_first_name" do
 end
 
 get "/pizzapageform1" do
-     size = size()
-		 crust = crust()
-		 sauces = sauces()
+     # size = size()
+		 # crust = crust()
+		 # sauces = sauces()
   erb :p001pizzapage, locals:{first_name: session[:first_name], size:size , crust:crust, sauces:sauces}
 end
 
@@ -29,7 +31,7 @@ post "/pizzapageform1" do
 	session[:selectcrust] = params[:selectcrust]
 	session[:selectsauce] = params[:selectsauce]
 	order_hash[pizza_number] = session[:pizza_number]
-	order_hash[pizza_number] = session[:pizza_number]
+	order_hash[selectpizzasize] = session[:selectpizzasize]
 	order_hash[selectcrust] = sesion[:selectcrust]
 	redirect "/toppings?="
 	# need if statement for reirect if 0 pizza
@@ -109,7 +111,7 @@ post '/deliveryform' do
 end
 
 get '/final_total_end' do
-	final_total = totalpricefunction()
+	final_total = totalpricefunction(order_hash)
 	puts "your total price is #{session[:final_total]}!!!!!!!!!!!!!!!!"
 	erb :p006pizzapage, locals:{final_total:final_total}
 
