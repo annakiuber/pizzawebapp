@@ -107,6 +107,19 @@ post '/deliveryform' do
 	order_hash["yesnodelivery"] = session[:yesnodelivery]
 	order_hash["yesnotip"] = session[:yesnotip]
 	order_hash["tipamount"] = session[:tipamount]
+	redirect "/confirmationoftoppings?="
+end
+
+get '/confirmationoftoppings' do
+	puts """
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	#{order_hash}
+	"""
+	# order_hash = {"yesnodelivery"=>"Yes", "yesnotip"=>"Yes", "tipamount"=>"20"}
+	erb :p006pizzapage, locals:{order_hash: order_hash, pizza_number: session[:pizza_number]}
+end
+
+post '/confirmationoftoppings' do
 	redirect "/final_total_end?="
 end
 
@@ -114,6 +127,6 @@ get '/final_total_end' do
 	pizza_number = session[:pizza_number]
 	final_total = totalpricefunction(pizza_number, order_hash)
 	puts "your total price is #{session[:final_total]}!!!!!!!!!!!!!!!!"
-	erb :p006pizzapage, locals:{final_total:final_total}
+	erb :p007pizzapage, locals:{final_total:final_total}
 
 end

@@ -1,10 +1,10 @@
-<h1>you ordered:<%=session[:pizza_number]%> pizza(s)</br>
-
-
-
-
-
-
-
-
-<%=final_total%></h1>
+<h1>Your order is...</h1>
+<form method="post" action="confirmationoftoppings" id="confirmationoftoppings">
+  <%order_hash.each do |key,value| %>
+  <%if value.class != NilClass%><br>
+<%=key%>:
+    <%=value%><input type = "checkbox" name = "<%=key%>" value = '<%=value%>'>
+    <%end%>
+  <%end%></br>
+  <input type="submit" value="next">
+</form>

@@ -16,13 +16,13 @@
 
 <h1> What kind of crust would you like?</h1>
 <%crust.each do |crust| %>
-  <input type = "radio" name = "selectcrust" value ='<%=crust%>'>
+  <input type = "checkbox" name = "selectcrust" value ='<%=crust%>'>
   <%=crust%>
 <%end%>
 
 <h1>What kind of sauce would you like on your pizza?</h1>
 <%sauces.each do |sauces| %>
-  <input type = "radio" name = "selectsauce" value ='<%=sauces%>'>
+  <input type = "checkbox" name = "selectsauce" value ='<%=sauces%>'>
   <%=sauces%>
 <%end%>
 
