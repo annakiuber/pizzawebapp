@@ -6,6 +6,8 @@ require_relative "totalfunction.rb"
 enable :sessions
 
 order_hash = {}
+pizza_hash = {}
+
 
 get "/" do
 	erb :index
@@ -30,9 +32,9 @@ post "/pizzapageform1" do
 	session[:selectpizzasize] = params[:selectpizzasize]
 	session[:selectcrust] = params[:selectcrust]
 	session[:selectsauce] = params[:selectsauce]
-	order_hash["selectpizzasize"] = session[:selectpizzasize]
-	order_hash["selectcrust"] = session[:selectcrust]
-	puts "This is the order hash after del #{order_hash}"
+	pizza_hash["selectpizzasize"] = session[:selectpizzasize]
+	pizza_hash["selectcrust"] = session[:selectcrust]
+	puts "This is the order hash after del #{pizza_hash}"
 	redirect "/toppings?="
 	# need if statement for reirect if 0 pizza
 end
@@ -50,18 +52,42 @@ post '/toppings' do
 	session[:newmeatnumber] = params[:newmeatnumber]
   session[:selectmeats] = params[:selectmeats]
 	session[:yesnoextracheese] = params[:yesnoextracheese]
-	order_hash["selectveggienumber"] = session[:selectveggienumber]
-	order_hash["newmeatnumber"] = session[:newmeatnumber]
-	order_hash["yesnoextracheese"] = session[:yesnoextracheese]
+	pizza_hash["selectveggienumber"] = session[:selectveggienumber]
+	pizza_hash["newmeatnumber"] = session[:newmeatnumber]
+	pizza_hash["yesnoextracheese"] = session[:yesnoextracheese]
 	puts "This is new veggie number #{session[:newveggienumber]}!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 		puts "This is the veggie you selected #{session[:selectveggies]}!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-		redirect "/sides?="
+		redirect "/confirmandaddpizza"
+end
+
+get '/confirmandaddpizza' do
+	"Hello Work"
+	erb :p003pizzapage, locals: {order_hash: order_hash}
+
+end
+post '/confirmandaddpizza' do
+	session[:confirmpizza] = params[:confirmpizza]
+	session[:addanotherpizza] = params[:addanotherpizza]
+	puts "this is confirmpizza #{session[:confirmpizza]}"
+	puts "this is addanotherpizza #{session[:addanotherpizza]}"
+	if session[:confirmpizza] == "Yes" && session[:addanotherpizza] == "Yes"
+		redirect '/pizzapageform1'
+	elsif session[:confirmpizza] == "No" && session[:addanotherpizza] == "Yes"
+		pizza_hash.delete(pizza_hash)
+		redirect '/pizzapageform1'
+	elsif session[:confirmpizza] == "Yes" && session[:addanotherpizza] == "No"
+		order_hash.merge(pizza_hash)
+		redirect '/sides'
+	else session[:confirmpizza] ++ "No" && session[:addanotherpizza] == "No"
+		pizza_hash.delete(pizza_hash)
+		redirect "/"
+end
 end
 
 get '/sides' do
 	wings = wings()
 	saladsforwebapp = saladsforwebapp()
-	erb :p003pizzapage
+	erb :p004pizzapage
 
 
 
@@ -82,7 +108,7 @@ end
  #need to add if/else statement for redirect fo sides.
 
  get '/drinkanddesserts' do
-	 erb :p004pizzapage
+	 erb :p005pizzapage
  end
 
  post '/drinkanddesserts' do
@@ -96,7 +122,7 @@ end
  end
 
  get '/deliveryform' do
-  erb :p005pizzapage
+  erb :p006pizzapage
 end
 
 post '/deliveryform' do
@@ -116,7 +142,7 @@ get '/confirmationoftoppings' do
 	#{order_hash}
 	"""
 	# order_hash = {"yesnodelivery"=>"Yes", "yesnotip"=>"Yes", "tipamount"=>"20"}
-	erb :p006pizzapage, locals:{order_hash: order_hash, pizza_number: session[:pizza_number]}
+	erb :p007pizzapage, locals:{order_hash: order_hash, pizza_number: session[:pizza_number]}
 end
 
 post '/confirmationoftoppings' do
@@ -127,6 +153,6 @@ get '/final_total_end' do
 	pizza_number = session[:pizza_number]
 	final_total = totalpricefunction(pizza_number, order_hash)
 	puts "your total price is #{session[:final_total]}!!!!!!!!!!!!!!!!"
-	erb :p007pizzapage, locals:{final_total:final_total}
+	erb :p008pizzapage, locals:{final_total:final_total}
 
 end

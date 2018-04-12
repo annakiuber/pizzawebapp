@@ -24,11 +24,11 @@
   end
 
   def meats()
-  meats= ["ham", "sausage", "pepperoni", "hamburger" , "anchovies" , "checken", "racoon", "the deer you ran over with your car", "salami" , "prosciutto", "bacon" ]
+  meats= ["ham", "sausage", "pepperoni", "hamburger" , "anchovies" , "chicken", "racoon", "the deer you ran over with your car", "salami" , "prosciutto", "bacon" ]
   end
 
   def veggies()
-  veggies = ["peppers", "onion", "tomatoe", "mushrooms", "spinach", "avacado" , "pesto", "pickles", "broccoli", "green mold from the dumpster out back" ]
+  veggies = ["peppers", "onion", "tomato", "mushrooms", "spinach", "avocado" , "pesto", "pickles", "broccoli", "green mold from the dumpster out back" ]
   end
 
   def sauces()

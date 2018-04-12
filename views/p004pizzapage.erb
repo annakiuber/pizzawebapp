@@ -1,26 +1,25 @@
-<form method= "post" action ="drinkanddesserts" id="drinkanddeserts">
-  <h1>would you like to add a drink to your order?</h1>
-  <input type="radio" name="yesnodrinks" value="Yes">Yes<br>
-   <input type="radio" name="yesnodrinks" value="No"> No<br>
+<form method= "post" action ="sides" id="sides">
+  <h1>would you like to add wings to your order?</h1>
+  <input type="radio" name="yesnowings" value="Yes">Yes<br>
+   <input type="radio" name="yesnowings" value="No"> No<br>
 
-  <h1>What kind of drinks would you like?</h1>
-    <%drinks.each do |drinks|%>
-    <input type = "checkbox" name = "selectdrinks" value ='<%=drinks%>'>
-    <%=drinks%>
+  <h1>What kind of wings would you like?</h1>
+    <%wings.each do |wings| %>
+    <input type = "checkbox" name = "selectwings" value ='<%=wings%>'>
+    <%=wings%>
     <%end%>
 
-    <h1>Would you like to add some futurama icecream to your order?</h1>
-        <input type="radio" name="yesnoicecream" value="Yes">Yes<br>
-         <input type="radio" name="yesnoicecream" value="No"> No<br>
+    <h1>Would you like a salad with your order?</h1>
+        <input type="radio" name="yesnosalad" value="Yes">Yes<br>
+         <input type="radio" name="yesnosalad" value="No"> No<br>
 
+
+    <h1> What kind of salad would you like?</h1>
+             <%saladsforwebapp.each do |saladsforwebapp| %>
+             <input type = "radio" name = "selectsalads" value ='<%=saladsforwebapp%>'>
+             <%=saladsforwebapp%>
+             <%end%>
 
 
 
 <p><input type="submit" value="next"></form></center></p>
-
-
-
-
-
-
-<!-- <h1><%=session[:first_name]%>, you ordered:<%=session[:pizza_number]%></h1> -->

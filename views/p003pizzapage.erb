@@ -1,25 +1,17 @@
-<form method= "post" action ="sides" id="sides">
-  <h1>would you like to add wings to your order?</h1>
-  <input type="radio" name="yesnowings" value="Yes">Yes<br>
-   <input type="radio" name="yesnowings" value="No"> No<br>
+<form method= "post" action ="confirmandaddpizza" id="toppings">
+<%order_hash.each do |key,value| %>
+  <%if value.class != NilClass%><br>
+    <%=key%>:
+    <%=value%>
+  <%end%>
+  <%end%>
+  <input type="radio" name="confirmpizza" value="Yes">Yes<br>
+  <input type="radio" name="confirmpizza" value="No"> No<br>
 
-  <h1>What kind of wings would you like?</h1>
-    <%wings.each do |wings| %>
-    <input type = "checkbox" name = "selectwings" value ='<%=wings%>'>
-    <%=wings%>
-    <%end%>
-
-    <h1>Would you like a salad with your order?</h1>
-        <input type="radio" name="yesnosalad" value="Yes">Yes<br>
-         <input type="radio" name="yesnosalad" value="No"> No<br>
-
-
-    <h1> What kind of salad would you like?</h1>
-             <%saladsforwebapp.each do |saladsforwebapp| %>
-             <input type = "radio" name = "selectsalads" value ='<%=saladsforwebapp%>'>
-             <%=saladsforwebapp%>
-             <%end%>
+<h1>Add another pizza?</h1>
+<input type="radio" name="addanotherpizza" value="Yes">Yes<br>
+   <input type="radio" name="addanotherpizza" value="No"> No<br>
 
 
 
-<p><input type="submit" value="next"></form></center></p>
+<input type="submit" value="next"></form>

@@ -6,7 +6,29 @@
     <%veggies.each do |veggies| %>
     <input type = "checkbox" name = "selectveggies" value ='<%=veggies%>'>
     <%=veggies%>
-    <%end%>
+        <div class="toppings">>
+          <% if veggies == "tomato" %>
+          <img src="/img/toppings/tomato.png">
+                   <% elsif veggies == "avocado" %>
+                       <img src="/img/toppings/avocado.png">
+                   <% elsif veggies== "broccoli.png" %>
+                       <img src="/img/toppings/greenmold.png">
+                   <% elsif veggies== "mushrooms"%>
+                       <img src="/img/toppings/mushroom.png">
+                   <% elsif veggies== "onion"%>
+                      <img src="/img/toppings/onion.png">
+                    <% elsif veggies== "peppers"%>
+                      <img src="/img/toppings/peppers.png">
+                    <% elsif veggies== "pesto"%>
+                      <img src="/img/toppings/pesto.png">
+                    <% elsif veggies== "pickles"%>
+                      <img src="/img/toppings/pickles.png">
+                        <% else veggies== "spinach"%>
+                        <img src="/img/toppings/spinach.png">
+                   <% end %>
+                   </div>
+
+                <% end %>
   <h1>would you like 0-4 meat toppings?</h1>
     <input type="number" id="newmeatnumber">
 

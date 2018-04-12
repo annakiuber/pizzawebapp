@@ -1,17 +1,18 @@
-<form method= "post" action ="deliveryform" id="deliveryform">
-  <h1>would you like to have your order delivered?</h1>
-  <input type="radio" name="yesnodelivery" value="Yes">Yes<br>
-   <input type="radio" name="yesnodelivery" value="No"> No<br>
+<form method= "post" action ="drinkanddesserts" id="drinkanddeserts">
+  <h1>would you like to add a drink to your order?</h1>
+  <input type="radio" name="yesnodrinks" value="Yes">Yes<br>
+   <input type="radio" name="yesnodrinks" value="No"> No<br>
 
-   <h1>If so what is your adress?</h1>
-   <input type = "text" name = "address">
+  <h1>What kind of drinks would you like?</h1>
+    <%drinks.each do |drinks|%>
+    <input type = "checkbox" name = "selectdrinks" value ='<%=drinks%>'>
+    <%=drinks%>
+    <%end%>
 
-  <h1>Would you like to go ahead and tip your driver?</h1>
-  <input type="radio" name="yesnotip" value="Yes">Yes<br>
-   <input type="radio" name="yesnotip" value="No"> No<br>
-<h1>what percentage would you like to tip?
-   <input type="number" name="tipamount">
-<h1>Please hit 'next' to review your order</h1>
+    <h1>Would you like to add some futurama icecream to your order?</h1>
+        <input type="radio" name="yesnoicecream" value="Yes">Yes<br>
+         <input type="radio" name="yesnoicecream" value="No"> No<br>
+
 
 
 

@@ -2,6 +2,8 @@ def totalpricefunction(pizza_number, order_hash)
   total_cost = 0
   order_hash.each do |item, value|
 
+    pizza_number = 0
+
     sizefee = 0
     if item == "selectpizzasize"
       if value == "small"
@@ -11,6 +13,7 @@ def totalpricefunction(pizza_number, order_hash)
       else value == "large"
         sizefee += 2.00
       end
+      pizza_number += 1
     end
 
     crustfee = 0
