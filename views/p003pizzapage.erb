@@ -1,17 +1,23 @@
 <form method= "post" action ="confirmandaddpizza" id="toppings">
-<%order_hash.each do |key,value| %>
-  <%if value.class != NilClass%><br>
-    <%=key%>:
-    <%=value%>
-  <%end%>
-  <%end%>
+  <%session[:pizza_hash].each do |key,value| %>
+    <%if value.class != NilClass%><br>
+      <% if value.class == Array %>
+        <%=key%>:
+        <% value.each do |val| %>
+          <%=val %>
+        <% end %>
+      <% else %>
+        <%=key%>:
+        <%=value%>
+      <% end %>
+    <%end%>
+  <%end%><br>
+  <h1>Will this confirm this pizza?</h1>
   <input type="radio" name="confirmpizza" value="Yes">Yes<br>
   <input type="radio" name="confirmpizza" value="No"> No<br>
 
-<h1>Add another pizza?</h1>
-<input type="radio" name="addanotherpizza" value="Yes">Yes<br>
-   <input type="radio" name="addanotherpizza" value="No"> No<br>
-
-
-
-<input type="submit" value="next"></form>
+  <h1>Add another pizza?</h1>
+  <input type="radio" name="addanotherpizza" value="Yes">Yes<br>
+  <input type="radio" name="addanotherpizza" value="No"> No<br>
+  <input type="submit" value="next">
+</form>

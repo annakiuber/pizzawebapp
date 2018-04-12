@@ -1,10 +1,7 @@
 <form method= "post" action ="toppings" id="toppings">
-  <h1>would you like 0-4 veggie toppings?</h1>
-    <input type="number" name = "selctveggienumber" >
-
-  <h1> what kind of veggies would you like on your pizza?</h1>
+<h1> what kind of veggies would you like on your pizza?</h1>
     <%veggies.each do |veggies| %>
-    <input type = "checkbox" name = "selectveggies" value ='<%=veggies%>'>
+    <input type = "checkbox" name = "selectveggies[]" value ='<%=veggies%>'>
     <%=veggies%>
         <div class="toppings">>
           <% if veggies == "tomato" %>
@@ -12,9 +9,11 @@
                    <% elsif veggies == "avocado" %>
                        <img src="/img/toppings/avocado.png">
                    <% elsif veggies== "broccoli.png" %>
-                       <img src="/img/toppings/greenmold.png">
+                       <img src="/img/toppings/broccoli.png">
                    <% elsif veggies== "mushrooms"%>
                        <img src="/img/toppings/mushroom.png">
+                    <% elsif veggies== "green mold from the dumpster out back"%>
+                        <img src="/img/toppings/greenmold.png">
                    <% elsif veggies== "onion"%>
                       <img src="/img/toppings/onion.png">
                     <% elsif veggies== "peppers"%>
@@ -29,12 +28,9 @@
                    </div>
 
                 <% end %>
-  <h1>would you like 0-4 meat toppings?</h1>
-    <input type="number" id="newmeatnumber">
-
-<h1> What kind of meats would you like?</h1>
+  <h1> What kind of meats would you like?</h1>
     <%meats.each do |meats| %>
-    <input type = "checkbox" name = "selectmeats" value ='<%=meats%>'>
+    <input type = "checkbox" name = "selectmeats[]" value ='<%=meats%>'>
     <%=meats%>
     <%end%>
 

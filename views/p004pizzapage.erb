@@ -5,7 +5,7 @@
 
   <h1>What kind of wings would you like?</h1>
     <%wings.each do |wings| %>
-    <input type = "checkbox" name = "selectwings" value ='<%=wings%>'>
+    <input type = "checkbox" name = "selectwings[]" value ='<%=wings%>'>
     <%=wings%>
     <%end%>
 
@@ -16,7 +16,7 @@
 
     <h1> What kind of salad would you like?</h1>
              <%saladsforwebapp.each do |saladsforwebapp| %>
-             <input type = "radio" name = "selectsalads" value ='<%=saladsforwebapp%>'>
+             <input type = "checkbox" name = "selectsalads[]" value ='<%=saladsforwebapp%>'>
              <%=saladsforwebapp%>
              <%end%>
 

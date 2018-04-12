@@ -1,12 +1,14 @@
 <h1>Your order is...</h1>
-<form method="post" action="confirmationoftoppings" id="confirmationoftoppings">
+
   <%order_hash.each do |key,value| %>
   <%if value.class != NilClass%><br>
 <%=key%>:
-    <%=value%><input type = "checkbox" name = "<%=key%>" value = '<%=value%>'>
+    <%=value%>
     <%end%>
   <%end%>
 </br>
-  
+<form method="post" action="confirmfinalorder" id="confirmfinalorder">
+<input type="radio" name="yesnoconfirmorder" value="Yes">Yes<br>
+ <input type="radio" name="yesnoconfirmorder" value="No"> No<br>
   <input type="submit" value="next">
 </form>
